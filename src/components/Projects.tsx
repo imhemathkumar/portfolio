@@ -1,9 +1,9 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ExternalLink, X } from 'lucide-react'
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type Project = {
   id: number
@@ -19,239 +19,220 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Brain Tumor Image Classification",
-    description: "Brain Tumor Image Classification uses machine learning to analyze MRI scans and identify or classify brain tumors for early detection and treatment.",
+    description: "Machine learning model for analyzing MRI scans and identifying brain tumors. This project showcases the application of deep learning in medical imaging.",
     imageUrl: "/images/Brain-Tumor.png",
-    tags: ["Python", "Tensorflow"],
+    tags: ["Python", "TensorFlow", "Deep Learning", "Medical Imaging"],
     color: "#FF6B6B",
     link: "https://github.com/imhemathkumar/Brain_tumor_classification"
   },
   {
     id: 2,
     title: "Weather App",
-    description: "Real-time weather forecasting web applocation provides weather forecasts, including temperature, humidity, and conditions, based on the user's location.",
+    description: "Real-time weather forecasting web application using OpenWeatherMap API. Get accurate weather information for any location with a sleek, user-friendly interface.",
     imageUrl: "/images/Nimbusvue.png",
-    tags: ["Nextjs", "React","Node.js","Typescript","Tailwind","OpenWeatherMapApi"],
+    tags: ["Next.js", "React", "Node.js", "TypeScript", "Tailwind", "API Integration"],
     color: "#4ECDC4",
     link: "https://nimbusvue.vercel.app/"
   },
   {
     id: 3,
-    title: "Fashion-Mnist",
-    description: "Fashion-MNIST is a dataset of 28x28 grayscale images representing 10 fashion categories, used for training machine learning models in image classification tasks",
+    title: "Fashion-MNIST",
+    description: "Image classification model for fashion items using the Fashion-MNIST dataset. This project demonstrates the power of convolutional neural networks in recognizing and categorizing clothing items.",
     imageUrl: "/images/Fashion-Mnist.png",
-    tags: ["Python", "Tensorflow"],
+    tags: ["Python", "TensorFlow", "CNN", "Computer Vision"],
     color: "#45B7D1",
     link: "https://github.com/imhemathkumar/Fashion-Mnist-CNN"
   },
-
   {
     id: 4,
     title: "TrustCert",
-    description: "A Web-Application for online certificate generation and validation. In this Certificate generation creates digital certificates for authentication, and validation ensures their authenticity through checks like signatures and expiration.",
+    description: "Web application for online certificate generation and validation. Streamline the process of creating, issuing, and verifying digital certificates with enhanced security features.",
     imageUrl: "/images/Trustcert.png",
-    tags: ["React", "Vitejs", "Node.js","Javascript"],
+    tags: ["React", "Vite", "Node.js", "JavaScript", "Cryptography"],
     color: "#A55EEA",
-    link: "https://example.com/chatbot"
+    link: "https://example.com/trustcert"
   },
   {
     id: 5,
     title: "Portfolio Website",
-    description: "A responsive portfolio website showcasing my projects and skills.",
-    imageUrl: "/images/portfolio.png",
-    tags: ["Nextjs", "React","Node.js","Typescript","Tailwind"],
+    description: "Responsive portfolio website showcasing projects and skills. A modern, interactive platform to highlight professional achievements and technical expertise.",
+    imageUrl: "/portfolio.png",
+    tags: ["Next.js", "React", "Node.js", "TypeScript", "Tailwind", "Framer Motion"],
     color: "#F7B731",
-    link: "https://example.com/portfolio"
+    link: "https://hemanthkumar-one.vercel.app/"
   },
 ]
 
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
-  const [isHovered, setIsHovered] = useState(false)
-
+const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ project, onClick }) => {
   return (
     <motion.div 
-      className="flex-shrink-0 w-[325px] h-[450px] relative perspective-1000 group"
-      whileHover={{ scale: 1.05, rotateY: 5, z: 50 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      layout
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer"
+      whileHover={{ y: -5, boxShadow: '0 10px 30px -15px rgba(0, 0, 0, 0.3)' }}
+      transition={{ duration: 0.3 }}
+      onClick={onClick}
     >
-      <motion.div 
-        className="absolute inset-0 rounded-2xl shadow-2xl overflow-hidden transform-style-3d "
-        style={{ 
-          transformOrigin: 'right center',
-          rotateY: isHovered ? -20 : 0,
-          transition: 'all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)'
-        }}
-      >
+      <div className="relative h-48">
         <Image 
           src={project.imageUrl} 
           alt={project.title} 
           layout="fill"
           objectFit="cover"
-          className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-50"
         />
         <div 
-          className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <motion.h3 
-            className="text-3xl font-bold text-gray-100 mb-3"
-            initial={{ y: 20, opacity: 0 }}
-            animate={isHovered ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.3, delay: 0.1 }}
-          >
-            {project.title}
-          </motion.h3>
-          <motion.p 
-            className="text-sm text-gray-200 mb-4"
-            initial={{ y: 20, opacity: 0 }}
-            animate={isHovered ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.3, delay: 0.2 }}
-          >
-            {project.description}
-          </motion.p>
-          <motion.div
-          className="flex flex-wrap items-center gap-2"
-          initial={{ y: 20, opacity: 0 }}
-          animate={isHovered? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.3, delay: 0.4 }}>
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="bg-gray-800/80 text-gray-200 px-3 py-1 rounded-full text-xs"
-            >
-              {tag}
-            </span>
-          ))}
-          {project.tags.length > 1 && (
-            <span className="mx-1 text-gray-200"></span>
-          )}
-            </motion.div>
-
-          <motion.a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-sm font-semibold pt-3 text-gray-100 hover:text-primary transition-colors duration-200"
-            initial={{ y: 20, opacity: 0 }}
-            animate={isHovered ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.3, delay: 0.3 }}
-          >
-            View Project <ExternalLink className="ml-2 h-4 w-4" />
-          </motion.a>
+          className="absolute inset-0 opacity-60"
+          style={{ backgroundColor: project.color, opacity:"0.5" }}
+        />
+        <div className="absolute bottom-4 left-4 right-4">
+          <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+          <div className="flex flex-wrap gap-2">
+            {project.tags.slice(0, 3).map((tag) => (
+              <span key={tag} className="bg-white/20 text-white px-2 py-1 rounded-full text-xs backdrop-blur-sm">
+                {tag}
+              </span>
+            ))}
+            {project.tags.length > 3 && (
+              <span className="bg-white/20 text-white px-2 py-1 rounded-full text-xs backdrop-blur-sm">
+                +{project.tags.length - 3}
+              </span>
+            )}
+          </div>
         </div>
-      </motion.div>
-      <div 
-        className="absolute -bottom-4 left-4 right-4 h-8 bg-gray-900 rounded-full shadow-lg flex items-center justify-center"
-        style={{ backgroundColor: project.color }}
-      >
-        <span className="text-xs font-bold text-white">{project.title}</span>
       </div>
     </motion.div>
   )
 }
 
-const ProjectsCarousel: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
-
-  const handleScroll = () => {
-    if (containerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current
-      const newIndex = Math.round(scrollLeft / (scrollWidth / projects.length))
-      setCurrentIndex(newIndex)
-      setCanScrollLeft(scrollLeft > 0)
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
-    }
-  }
+const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ project, onClose }) => {
+  const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const currentRef = containerRef.current
-    currentRef?.addEventListener('scroll', handleScroll)
-    return () => currentRef?.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (containerRef.current) {
-      const scrollAmount = direction === 'left' ? -400 : 400
-      containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+    const handleClickOutside = (event: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        onClose()
+      }
     }
-  }
 
-  const scrollToIndex = (index: number) => {
-    if (containerRef.current) {
-      const scrollAmount = index * 400 // Assuming each card is roughly 400px wide
-      containerRef.current.scrollTo({ left: scrollAmount, behavior: 'smooth' })
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
     }
-  }
-
-  const { scrollYProgress } = useScroll()
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '-30%'])
+  }, [onClose])
 
   return (
-    <section id="projects" className="py-24 dark:bg-gray-900 text-black dark:text-white overflow-hidden relative">
-      <motion.div 
-        className="absolute inset-0 z-0 opacity-10"
-        style={{ 
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          y: backgroundY
-        }}
-      />
-      <div className="container mx-auto px-4 relative z-10">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+    >
+      <motion.div
+        ref={modalRef}
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 50, opacity: 0 }}
+        className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+      >
+        <div className="relative h-64">
+          <Image 
+            src={project.imageUrl} 
+            alt={project.title} 
+            layout="fill"
+            objectFit="cover"
+          />
+          <div 
+            className="absolute inset-0 opacity-60"
+            style={{ backgroundColor: project.color,  opacity:"0.1" }}
+          />
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 bg-white/20 text-white p-2 rounded-full backdrop-blur-sm hover:bg-white/40 transition-colors"
+            aria-label="Close modal"
+          >
+            <X size={24} />
+          </button>
+        </div>
+        <div className="p-6">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">{project.title}</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">{project.description}</p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tags.map((tag) => (
+              <span key={tag} className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-primary dark:hover:text-primary transition-colors duration-200"
+          >
+            View Project <ExternalLink className="ml-2 h-4 w-4" />
+          </a>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+const Projects: React.FC = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  //const [filter, setFilter] = useState<string | null>(null) //removed
+
+  //const filteredProjects = filter
+  //  ? projects.filter(project => project.tags.includes(filter))
+  //  : projects //removed
+
+  //const allTags = Array.from(new Set(projects.flatMap(project => project.tags))) //removed
+
+  return (
+    <section id="projects" className="py-24 dark:bg-gray-900">
+      <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-5xl font-bold text-center mb-16"
+          className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           My Projects
         </motion.h2>
-        <div className="relative">
-          <motion.div 
-            ref={containerRef}
-            className="flex space-x-8 overflow-x-scroll scrollbar-hide pb-12"
-            style={{ scrollBehavior: 'smooth' }}
-            whileTap={{ cursor: 'grabbing' }}
-          >
+
+
+        <motion.div 
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence>
             {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </motion.div>
-          <div className="flex justify-center mt-8 space-x-2">
-            {projects.map((project, index) => (
-              <button
+              <motion.div
                 key={project.id}
-                onClick={() => scrollToIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? 'dark:bg-primary/80 bg-blue-500 scale-125' : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to project ${index + 1}`}
-              />
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <ProjectCard 
+                  project={project} 
+                  onClick={() => setSelectedProject(project)}
+                />
+              </motion.div>
             ))}
-          </div>
-          <button
-            onClick={() => scroll('left')}
-            className={`absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 p-3 rounded-full shadow-lg transition-opacity  duration-200 ${
-              canScrollLeft ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            }`}
-            aria-label="Scroll left"
-          >
-            <ArrowLeft className="h-6 w-6 text-white" />
-          </button>
-          <button
-            onClick={() => scroll('right')}
-            className={`absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 p-3 rounded-full shadow-lg transition-opacity duration-200 ${
-              canScrollRight ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            }`}
-            aria-label="Scroll right"
-          >
-            <ArrowRight className="h-6 w-6 text-white" />
-          </button>
-        </div>
+          </AnimatePresence>
+        </motion.div>
+
+        <AnimatePresence>
+          {selectedProject && (
+            <ProjectModal 
+              project={selectedProject} 
+              onClose={() => setSelectedProject(null)}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </section>
   )
 }
 
-export default ProjectsCarousel
+export default Projects
+
