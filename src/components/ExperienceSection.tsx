@@ -33,8 +33,8 @@ const studentExperiences: StudentExperienceItem[] = [
     duration: "2023",
     description: [
       "Gained certification in multiple NPTEL courses, varying from short-term 4-week programs to extensive 12-week sessions.",
-      "These courses reinforced analytical thinking, problem-solving, and specialized skills in data visualization and machine learning.",
-      "These programs featured rigorous academic content and practical applications, highlighting a commitment to continuous learning and skill enhancement in particular areas."
+      "These courses reinforced analytical thinking, problem-solving, and specialized skills in the data visualization and machine learning.",
+      "These programs featured rigorous academic content and practical applications, and highlighting a commitment to continuous learning and skill enhancement in particular areas."
     ],
     icon: <Book className="w-6 h-6" />
   },
@@ -46,7 +46,7 @@ const studentExperiences: StudentExperienceItem[] = [
     description: [
       "Analysting in a machine learning project focused on natural language processing",
       "Implementing and testing various neural network architectures",
-      "Utilizing statistical analysis and machine learning techniques to address business challenges, including trend forecasting, pattern recognition, and anomaly detection."
+      "Utilizing statistical analysis and the machine learning techniques to address the business challenges, including trend forecasting, pattern recognition, and anomaly detection."
     ],
     icon: <Code className="w-6 h-6" />
   },
@@ -139,7 +139,7 @@ export default function StudentExperience() {
                 className="overflow-hidden"
               >
                 <div className="p-6 pt-0">
-                  <ul className="list-disc px-10 text-black dark:text-white">
+                  <ul className="list-disc sm:px-10 px-6.5 text-justify text-black dark:text-white">
                     {experience.description.map((item, index) => (
                       <motion.li 
                         key={`description-${index}-${item.substring(0, 10)}`} 
