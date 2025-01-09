@@ -64,7 +64,7 @@ const projects: Project[] = [
   },
 ]
 
-const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
+const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -214,8 +214,8 @@ const ProjectsCarousel: React.FC = () => {
             style={{ scrollBehavior: 'smooth' }}
             whileTap={{ cursor: 'grabbing' }}
           >
-            {projects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
           </motion.div>
           <div className="flex justify-center mt-8 space-x-2">
@@ -255,4 +255,3 @@ const ProjectsCarousel: React.FC = () => {
 }
 
 export default ProjectsCarousel
-
