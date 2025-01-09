@@ -21,9 +21,9 @@ export function MobileNavigationSheet({ navItems, isOpen, onClose }: Readonly<Mo
   return (
     <Sheet open={isOpen} onOpenChange={onClose}
     >
-      <SheetContent >
+      <SheetContent className="dark:bg-gray-900 dark:text-white" >
         <SheetHeader >
-          <SheetTitle >Menu</SheetTitle>
+          <SheetTitle className="dark:bg-gray-900 dark:text-white" >Menu</SheetTitle>
           
         </SheetHeader>
         <div  className="flex flex-col gap-4 mt-4">
