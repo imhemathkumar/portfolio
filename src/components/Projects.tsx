@@ -20,7 +20,7 @@ const projects: Project[] = [
     id: 1,
     title: "Brain Tumor Image Classification",
     description: "Brain Tumor Image Classification uses machine learning to analyze MRI scans and identify or classify brain tumors for early detection and treatment.",
-    imageUrl: "/images/brain-tumor.png",
+    imageUrl: "/images/Brain-Tumor.png",
     tags: ["Python", "Tensorflow"],
     color: "#FF6B6B",
     link: "https://github.com/imhemathkumar/Brain_tumor_classification"
