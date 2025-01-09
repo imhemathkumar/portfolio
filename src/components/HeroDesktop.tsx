@@ -36,7 +36,7 @@ export default function HeroDesktop() {
         Hemanth Kumar
       </h1>
       <p className="text-muted-foreground dark:text-gray-300 max-w-lg">
-      I'm a Web Developer with expertise in full-stack development, UI/UX design, and modern web technologies.
+      I&apos;m a Web Developer with expertise in full-stack development, UI/UX design, and modern web technologies.
       </p>
       <div className="flex items-center gap-4">
         <motion.div
@@ -75,4 +75,3 @@ export default function HeroDesktop() {
     </motion.div>
   )
 }
-
