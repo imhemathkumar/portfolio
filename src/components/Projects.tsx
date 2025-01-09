@@ -69,13 +69,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
   return (
     <motion.div 
-      className="flex-shrink-0 w-[350px] h-[500px] relative perspective-1000 group"
+      className="flex-shrink-0 w-[325px] h-[450px] relative perspective-1000 group"
       whileHover={{ scale: 1.05, rotateY: 5, z: 50 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
       <motion.div 
-        className="absolute inset-0 rounded-2xl shadow-2xl overflow-hidden transform-style-3d bg-gray-800"
+        className="absolute inset-0 rounded-2xl shadow-2xl overflow-hidden transform-style-3d "
         style={{ 
           transformOrigin: 'right center',
           rotateY: isHovered ? -20 : 0,
@@ -93,7 +93,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
           <motion.h3 
-            className="text-3xl font-bold text-white mb-3"
+            className="text-3xl font-bold text-gray-100 mb-3"
             initial={{ y: 20, opacity: 0 }}
             animate={isHovered ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.3, delay: 0.1 }}
@@ -101,7 +101,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             {project.title}
           </motion.h3>
           <motion.p 
-            className="text-sm text-gray-300 mb-4"
+            className="text-sm text-gray-200 mb-4"
             initial={{ y: 20, opacity: 0 }}
             animate={isHovered ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.3, delay: 0.2 }}
@@ -116,13 +116,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-xs"
+              className="bg-gray-800/80 text-gray-200 px-3 py-1 rounded-full text-xs"
             >
               {tag}
             </span>
           ))}
           {project.tags.length > 1 && (
-            <span className="mx-1 text-gray-300"></span>
+            <span className="mx-1 text-gray-200"></span>
           )}
             </motion.div>
 
@@ -130,7 +130,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-sm font-semibold pt-3 text-white hover:text-gray-300 transition-colors duration-200"
+            className="inline-flex items-center text-sm font-semibold pt-3 text-gray-100 hover:text-primary transition-colors duration-200"
             initial={{ y: 20, opacity: 0 }}
             animate={isHovered ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.3, delay: 0.3 }}
