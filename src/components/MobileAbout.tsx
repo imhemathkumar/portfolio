@@ -24,9 +24,9 @@ export default function MobileAbout() {
   return (
     <section className="py-10 px-4">
       <h2 className="text-3xl font-bold text-center dark:text-white mb-4">{aboutContent.title}</h2>
-      <p className="text-base text-justify text-black-300 dark:text-gray-300 mb-4">{aboutContent.description} I&#39;ve had the opportunity to work👨🏻‍💻as a Data Analyst at Skillforge, where I honed my analytical skills and appreciated the importance of teamwork and collaboration🤝. In addition to my professional experience, I possess🧠strong problem-solving abilities, team management skills, and leadership qualities, which enable me to thrive in both academic and project environments. {aboutContent.additionalInfo} I&#39;m excited to continue my growth as a developer and contribute to meaningful projects that blend innovation with an excellent user experience. I&#39;m ready to connect and create some digital magic together!✨</p>
+      <p className="text-sm px-5 text-justify text-black-300 dark:text-gray-300 mb-4">{aboutContent.description} I&#39;ve had the opportunity to work👨🏻‍💻as a Data Analyst at Skillforge, where I honed my analytical skills and appreciated the importance of teamwork and collaboration🤝. In addition to my professional experience, I possess🧠strong problem-solving abilities, team management skills, and leadership qualities, which enable me to thrive in both academic and project environments. {aboutContent.additionalInfo} I&#39;m excited to continue my growth as a developer and contribute to meaningful projects that blend innovation with an excellent user experience. I&#39;m ready to connect and create some digital magic together!✨</p>
       
-      <div className="flex gap-4 mb-8">
+      <div className="flex px-5 gap-4 mb-8">
         <motion.a
                 href="https://www.instagram.com/hemanth_kumar_telukuntla?igsh=MWFucmlreGwwdGdhMA=="
                 target="_blank"
@@ -68,7 +68,7 @@ export default function MobileAbout() {
               </motion.a>
       </div>
 
-      <div className="bg-zinc-100 dark:bg-gray-800 rounded-3xl  p-6 mb-8">
+      <div className=" p-6 mb-8">
         <Image
           src="/images/hemath-kumar.jpg"
           alt="Profile photo"
