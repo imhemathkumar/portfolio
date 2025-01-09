@@ -24,7 +24,7 @@ export default function MobileAbout() {
   return (
     <section className="py-10 px-4">
       <h2 className="text-3xl font-bold text-center dark:text-white mb-4">{aboutContent.title}</h2>
-      <p className="text-base text-justify text-black-300 dark:text-gray-300 mb-4">{aboutContent.description} I’ve had the opportunity to work👨🏻‍💻as a Data Analyst at Skillforge, where I honed my analytical skills and appreciated the importance of teamwork and collaboration🤝. In addition to my professional experience, I possess🧠strong problem-solving abilities, team management skills, and leadership qualities, which enable me to thrive in both academic and project environments. {aboutContent.additionalInfo} I’m excited to continue my growth as a developer and contribute to meaningful projects that blend innovation with an excellent user experience. I'm ready to connect and create some digital magic together!✨</p>
+      <p className="text-base text-justify text-black-300 dark:text-gray-300 mb-4">{aboutContent.description} I&#39;ve had the opportunity to work👨🏻‍💻as a Data Analyst at Skillforge, where I honed my analytical skills and appreciated the importance of teamwork and collaboration🤝. In addition to my professional experience, I possess🧠strong problem-solving abilities, team management skills, and leadership qualities, which enable me to thrive in both academic and project environments. {aboutContent.additionalInfo} I&#39;m excited to continue my growth as a developer and contribute to meaningful projects that blend innovation with an excellent user experience. I&#39;m ready to connect and create some digital magic together!✨</p>
       
       <div className="flex gap-4 mb-8">
         <motion.a
@@ -76,7 +76,7 @@ export default function MobileAbout() {
           height={200}
           className=" mx-auto mb-4 rounded-3xl "
         />
-        <h1 className="text-2xl font-bold pt-4 dark:border-gray-500/30 text-center border-t-2 mb-2">Hello, I'm Hemanth Kumar</h1>
+        <h1 className="text-2xl font-bold pt-4 dark:border-gray-500/30 text-center border-t-2 mb-2">Hello, I&#39;m Hemanth Kumar</h1>
         <h2 className="text-lg font-semibold text-yellow-500 text-center mb-4">Developer</h2>
         <p className="text-sm text-gray-600 dark:text-gray-300 text-center mb-6">
         I am a developer with a passion for coding and the continuous upgrading of my skills. My websites are dynamic and user-friendly, integrating technical skills with creative problem-solving. Always excited about innovative ideas and collaborations.
