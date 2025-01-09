@@ -47,8 +47,8 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 dark:text-white">Let's Talk</h2>
-          <p className="text-lg text-muted-foreground dark:text-gray-300">Be it anything, I'm always open to discuss new ideas and projects.</p>
+          <h2 className="text-4xl font-bold mb-4 dark:text-white">Let&apos;s Talk</h2>
+          <p className="text-lg text-muted-foreground dark:text-gray-300">Be it anything, I&apos;m always open to discuss new ideas and projects.</p>
         </motion.div>
 
         <motion.div
@@ -144,4 +144,3 @@ export default function Contact() {
     </section>
   )
 }
-
