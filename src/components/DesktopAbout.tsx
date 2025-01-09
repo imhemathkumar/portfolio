@@ -56,11 +56,11 @@ export default function DesktopAbout() {
             <h2 className="text-4xl font-bold text-center dark:text-white">{aboutContent.title}</h2>
             <p style={{ textAlign: 'justify' }} className="text-xl text-black-300 dark:text-gray-300">{aboutContent.description}</p>
             <p style={{ textAlign: 'justify' }} className="text-xl text-black-300 dark:text-gray-300">
-            I’ve had the opportunity to work 👨🏻‍💻 as a Data Analyst at Skillforge, where I honed my analytical skills and appreciated the importance of teamwork and collaboration 🤝. In addition to my professional experience, I possess 🧠 strong problem-solving abilities, team management skills, and leadership qualities, which enable me to thrive in both academic and project environments.
+             I&rsquo;ve had the opportunity to work 👨🏻‍💻 as a Data Analyst at Skillforge, where I honed my analytical skills and appreciated the importance of teamwork and collaboration 🤝. In addition to my professional experience, I possess 🧠 strong problem-solving abilities, team management skills, and leadership qualities, which enable me to thrive in both academic and project environments.
 
             </p>
             <p style={{ textAlign: 'justify' }} className="text-xl text-black-300 dark:text-gray-300">{aboutContent.additionalInfo}</p>
-            <p style={{ textAlign: 'justify' }} className="text-xl text-black-300 dark:text-gray-300">I’m excited to continue my growth as a developer and contribute to meaningful projects that blend innovation with an excellent user experience. I'm ready to connect and create some digital magic together! ✨ </p>
+            <p style={{ textAlign: 'justify' }} className="text-xl text-black-300 dark:text-gray-300">I&rsquo;m excited to continue my growth as a developer and contribute to meaningful projects that blend innovation with an excellent user experience. I&rsquo;m ready to connect and create some digital magic together! ✨ </p>
             <div className="flex gap-6">
               <motion.a
                 href="https://www.instagram.com/hemanth_kumar_telukuntla?igsh=MWFucmlreGwwdGdhMA=="
