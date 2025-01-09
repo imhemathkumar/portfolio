@@ -32,7 +32,7 @@ export default function Portfolio() {
         <div className="mx-auto flex flex-col px-8 items-center overflow-hidden">
           <About />
         </div>
-        <div className="mx-auto flex flex-col px-8 overflow-hidden">
+        <div className="mx-auto flex flex-col overflow-hidden">
           <Projects />
           <Skills />
           <ExperienceSection />
