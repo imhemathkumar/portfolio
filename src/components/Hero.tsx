@@ -14,7 +14,7 @@ export default function Hero() {
   }
 
   return (
-    <div style={{ paddingBottom:"10%"}} className=" w-full">
+    <div id="home" style={{ paddingBottom:"10%"}} className=" w-full">
       {/* Mobile View */}
       <div className="lg:hidden">
         <HeroMobile />
