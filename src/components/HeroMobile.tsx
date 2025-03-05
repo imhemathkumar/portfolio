@@ -97,9 +97,9 @@ export default function HeroMobile() {
             whileTap="tap"
           >
             <Link 
-              href="/Hemanth Resume.pdf"
+              href="/Hemanth-CV.pdf"
               className="w-full"
-              download="Hemanth Resume.pdf"
+              download="Hemanth-CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
