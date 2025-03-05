@@ -178,8 +178,8 @@ export default function DesktopAbout() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Link href="/Hemanth Resume.pdf" 
-                    download="Hemanth Resume.pdf"
+                    <Link href="/Hemanth-CV.pdf" 
+                    download="Hemanth-CV.pdf"
                     className="inline-block"
                     target="_blank"
                     rel="noopener noreferrer"
