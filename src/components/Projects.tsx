@@ -50,10 +50,28 @@ const projects: Project[] = [
     imageUrl: "/images/Trustcert.png",
     tags: ["React", "Vite", "Node.js", "JavaScript", "Cryptography"],
     color: "#A55EEA",
-    link: "https://example.com/trustcert"
+    link: "https://github.com/imhemathkumar/TrustCert"
   },
   {
     id: 5,
+    title: "SELinux Policy For System Security Enforcement",
+    description: "SELinux Policy for System Security Enforcement ensures mandatory access control by defining and enforcing strict security rules on system processes and resources.",
+    imageUrl: "/portfolio.png",
+    tags: ["selinux-policy-devel", "checkpolicy", "audit", "policycoreutils", "policycoreutils-python-utils"],
+    color: "#3197f7",
+    link: "https://github.com/imhemathkumar/SELinux-policies"
+  },
+  {
+    id: 6,
+    title: "To-Do-List",
+    description: "A To-Do List Web Application that helps users organize, manage, and prioritize tasks with features like drag-and-drop, due dates, tags, and theme customization.",
+    imageUrl: "/portfolio.png",
+    tags: ["HTML", "CSS", "JavaScript"],
+    color: "#31f74f",
+    link: "https://todolist-hemanth.vercel.app/"
+  },
+  {
+    id: 7,
     title: "Portfolio Website",
     description: "Responsive portfolio website showcasing projects and skills. A modern, interactive platform to highlight professional achievements and technical expertise.",
     imageUrl: "/portfolio.png",
@@ -61,6 +79,7 @@ const projects: Project[] = [
     color: "#F7B731",
     link: "https://hemanthkumar-one.vercel.app/"
   },
+  
 ]
 
 const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ project, onClick }) => {
