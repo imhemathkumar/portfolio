@@ -58,7 +58,7 @@ const projects: Project[] = [
     description: "SELinux Policy for System Security Enforcement ensures mandatory access control by defining and enforcing strict security rules on system processes and resources.",
     imageUrl: "/images/SElinux.png",
     tags: ["selinux-policy-devel", "checkpolicy", "audit", "policycoreutils", "policycoreutils-python-utils"],
-    color: "#3197f7",
+    color: "#31f74f",
     link: "https://github.com/imhemathkumar/SELinux-policies"
   },
   {
@@ -67,7 +67,7 @@ const projects: Project[] = [
     description: "A To-Do List Web Application that helps users organize, manage, and prioritize tasks with features like drag-and-drop, due dates, tags, and theme customization.",
     imageUrl: "/images/todo.png",
     tags: ["HTML", "CSS", "JavaScript"],
-    color: "#31f74f",
+    color: "#3197f7",
     link: "https://todolist-hemanth.vercel.app/"
   },
   {
