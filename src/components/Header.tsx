@@ -25,7 +25,7 @@ export default function Header() {
         <Link href="/" className="text-xl hover:text-primary font-semibold dark:text-white"> <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}>
-          Hemanth<span className="text-primary dark:text-primary animate-pulse">.</span></motion.div>
+          Hemanth<span className="text-primary dark:text-primary hover:text-black dark:hover:text-white animate-pulse">.</span></motion.div>
         </Link>
         <DesktopNavigation navItems={navItems} />
         <MobileMenuButton onClick={() => setIsMobileMenuOpen(true)} />
